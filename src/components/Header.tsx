@@ -58,6 +58,7 @@ const Header = () => {
 						<FaUserLarge className="w-5 h-5 text-gray-500" />
 					</div>
 
+					{/* Mobile Menu */}
 					<button
 						className="md:hidden p-2"
 						onClick={() => setMobileMenuOpen(prev => !prev)}>
@@ -69,7 +70,6 @@ const Header = () => {
 					</button>
 				</div>
 			</div>
-
 			{isMobileMenuOpen && (
 				<div className="md:hidden px-4 pb-4 space-y-2 bg-white border-t border-gray-200">
 					{navItems.map(item => (

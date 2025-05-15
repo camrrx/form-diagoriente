@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useFormData } from "../utils/FormDataContext";
+import { useFormData } from "./FormDataContext";
 
 export type ThemeFormData = {
 	theme: string[]; // page 1
@@ -32,6 +32,7 @@ export const useFormController = () => {
 	const [isValid, setIsValid] = useState(false);
 
 	const onSubmit = (data: ThemeFormData) => {
+		//Page du thème
 		if (location.pathname === "/") {
 			if (data.theme.length === 0) {
 				setIsFormError(true);
