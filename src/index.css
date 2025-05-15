@@ -1,0 +1,28 @@
+@import "tailwindcss";
+html,
+body,
+#root {
+	height: 100%;
+}
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--nav-selected: 240 100% 50%;
+		--nav-selected-bg: 240 100% 50% / 0.15;
+		--nav-hover-bg: 240 100% 50% / 0.15;
+	}
+}
+@layer utilities {
+	.nav-item {
+		@apply py-2 px-4 rounded-[5px] transition-colors;
+	}
+
+	.nav-item-default {
+		@apply hover:bg-[hsl(var(--nav-hover-bg))];
+	}
+
+	.nav-item-selected {
+		@apply bg-[hsl(var(--nav-selected-bg))];
+	}
+}
