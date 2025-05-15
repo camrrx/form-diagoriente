@@ -39,7 +39,7 @@ const CardsForm = () => {
 	}, [activeIndex]);
 
 	return (
-		<div className="relative w-full">
+		<div className="relative w-full ">
 			<form onSubmit={handleSubmit(onSubmit)} className="w-full">
 				<h1 className="text-2xl text-[#494BFF] font-bold text-center mb-4">
 					Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -77,7 +77,7 @@ const CardsForm = () => {
 										}
 									}}>
 									<div
-										className={`relative bg-white p-4 rounded-xl shadow-sm h-[70vh] w-[50vw] ${
+										className={`relative flex justify-center items-center flex-col bg-white p-4 rounded-xl shadow-sm h-[70vh] w-[50vw] ${
 											!isActive ? "blur-sm opacity-60 " : ""
 										}`}>
 										<p>{`${card.id}/${cards.length}`}</p>

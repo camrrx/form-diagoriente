@@ -6,7 +6,7 @@ import CardsForm from "./pages/CardsForm";
 
 function App() {
 	return (
-		<div className="fixed top-0 left-0 h-screen w-screen bg-[#eef2ff] flex flex-col flex-1">
+		<div className="fixed top-0 left-0 h-screen w-screen bg-[#f5f5ff] flex flex-col flex-1">
 			<Header />
 			<Router>
 				<Routes>
