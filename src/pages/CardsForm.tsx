@@ -38,10 +38,25 @@ const CardsForm = () => {
 		setShowBravoCard(cards.every(card => card.validated));
 	}, [activeIndex]);
 
+	const getTranslateX = () => {
+		const screenWidth = window.innerWidth;
+		//responsive
+		if (screenWidth < 640) {
+			// mobile
+			return `translateX(calc(60vw - ${activeIndex * 70}vw - 45vw))`;
+		} else if (screenWidth < 768) {
+			// tablette
+			return `translateX(calc(60vw - ${activeIndex * 50}vw - 35vw))`;
+		} else {
+			// desktop
+			return `translateX(calc(60vw - ${activeIndex * 30}vw - 25vw))`;
+		}
+	};
+
 	return (
 		<div className="relative w-full ">
 			<form onSubmit={handleSubmit(onSubmit)} className="w-full">
-				<h1 className="text-2xl text-[#494BFF] font-bold text-center mb-4">
+				<h1 className="sm:text-1xl md:text-2xl text-[#494BFF] font-bold text-center mb-4">
 					Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
 					vulputate libero et
 				</h1>
@@ -52,11 +67,7 @@ const CardsForm = () => {
 				<div className="flex items-center h-auto">
 					<div
 						className="flex transition-transform duration-500 ease-in-out "
-						style={{
-							transform: `translateX(calc(60vw - ${
-								activeIndex * 30
-							}vw - 25vw))`,
-						}}>
+						style={{ transform: getTranslateX() }}>
 						{cards.map((card, index) => {
 							const isActive = index === activeIndex;
 
@@ -77,11 +88,11 @@ const CardsForm = () => {
 										}
 									}}>
 									<div
-										className={`relative flex justify-center items-center flex-col bg-white p-4 rounded-xl shadow-sm h-[70vh] w-[50vw] ${
+										className={`relative flex justify-center items-center flex-col bg-white p-4 rounded-xl shadow-sm h-[70vh] w-[90vw] sm:w-[70vw] md:w-[50vw] overflow-auto ${
 											!isActive ? "blur-sm opacity-60 " : ""
 										}`}>
 										<p>{`${card.id}/${cards.length}`}</p>
-										<h2 className="text-1xl font-semibold mb-2">
+										<h2 className="sm:text-lg md:text-1xl font-semibold mb-2">
 											{card.title} <br />
 											{card.subtitle}
 										</h2>
@@ -118,14 +129,18 @@ const CardsForm = () => {
 
 						{showBravoCard && (
 							<div className="px-2 scale-100 opacity-100">
-								<div className="relative bg-white p-8 rounded-xl shadow-sm h-130 w-200 flex flex-col items-center justify-center gap-6">
-									<img src={ValidationImg} className="h-60" />
-									<h2 className="text-2xl font-bold text-[#494BFF]">Bravo !</h2>
-									<p className="text-center text-gray-600">
+								<div
+									className="relative bg-white p-6 sm:p-8 rounded-xl shadow-sm 
+			h-[70vh] w-[80vw] sm:w-[50vw] flex flex-col items-center justify-center gap-6">
+									<img src={ValidationImg} className="h-40 sm:h-60" />
+									<h2 className="text-xl sm:text-2xl font-bold text-[#494BFF]">
+										Bravo !
+									</h2>
+									<p className="text-center text-gray-600 text-sm sm:text-base">
 										Corem ipsum dolor sit amet, consectetur adipiscing elit.
 									</p>
 									<Link to={"/"}>
-										<button className="px-6 py-3 bg-[#494BFF] text-white rounded-lg hover:bg-[#3a3cd5]">
+										<button className="px-4 sm:px-6 py-2 sm:py-3 bg-[#494BFF] text-white rounded-lg hover:bg-[#3a3cd5]">
 											Terminer
 										</button>
 									</Link>

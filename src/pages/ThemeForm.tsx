@@ -15,7 +15,7 @@ const ThemeForm = () => {
 	};
 
 	return (
-		<div className="min-h-screen flex flex-col bg-[#f5f7ff]">
+		<div className="min-h-screen flex flex-col bg-[#f5f7ff] ">
 			<main className="flex-grow container mx-auto px-4 py-8">
 				<div className="max-w-4xl mx-auto">
 					<h1 className="text-2xl text-[#494BFF] font-light text-center mb-8">
@@ -24,7 +24,7 @@ const ThemeForm = () => {
 
 					<div>
 						<form onSubmit={handleSubmit(onSubmit)}>
-							<div className="shadow-sm  bg-white p-8 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-6">
+							<div className="shadow-sm  bg-white p-8 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-6 h-[50vh] overflow-auto">
 								{themeOptions.map(option => (
 									<CheckboxComponent
 										key={option.value}
@@ -53,7 +53,10 @@ const ThemeForm = () => {
 				</div>
 			</main>
 
-			<img src={IconThemeImg} className=" fixed bottom-0 right-0 h-80 w-auto" />
+			<img
+				src={IconThemeImg}
+				className="fixed bottom-0 right-0 h-45 sm:h-52 md:h-64 lg:h-80 w-auto"
+			/>
 		</div>
 	);
 };

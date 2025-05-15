@@ -27,18 +27,18 @@ export const CheckboxComponent: React.FC<CheckboxProps> = ({
 
 	return (
 		<label
-			className={`flex items-center  space-x-2 cursor-pointer p-3 rounded-md transition-colors ${
+			className={`flex items-center space-x-2 cursor-pointer p-2 sm:p-3 rounded-md transition-colors ${
 				checked ? "bg-[#F0F4FF]" : "bg-[#F6F6F8]"
 			}`}>
 			<Checkbox.Root
-				className="w-6 h-6 border rounded-md flex items-center justify-center data-[state=checked]:bg-[#494BFF]"
+				className="w-5 h-5 sm:w-6 sm:h-6 border rounded-md flex items-center justify-center data-[state=checked]:bg-[#494BFF]"
 				checked={checked}
 				onCheckedChange={toggle}>
 				<Checkbox.Indicator>
-					<CheckIcon className="text-white" />
+					<CheckIcon className="text-white w-3.5 h-3.5 sm:w-4 sm:h-4" />
 				</Checkbox.Indicator>
 			</Checkbox.Root>
-			<span className="text-xs text-left">{label}</span>
+			<span className="max-w-[80%] text-xs sm:text-sm text-left">{label}</span>
 		</label>
 	);
 };
